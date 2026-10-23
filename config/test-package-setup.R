@@ -92,3 +92,19 @@ cat("test-package-setup.R: default-deny, explicit consent, legacy deny, renv, lo
 }
 
 main()
+
+# Legacy callers retain their function signature and use the shared consent policy.
+setup_expressions <- parse(file = file.path(repo, "project-template", "R", "0_setup.R"))
+legacy_definition <- Filter(function(expr) is.call(expr) && identical(expr[[1L]], as.name("<-")) &&
+  identical(expr[[2L]], as.name("install_packages_if_missing")), as.list(setup_expressions))[[1L]]
+legacy <- new.env(parent = baseenv())
+legacy$package_setup <- function(packages, install_missing_packages, project_root, attach) {
+  stopifnot(identical(packages, c(example = NA_character_)))
+  install_missing_packages
+}
+eval(legacy_definition, envir = legacy)
+legacy$install_missing_packages <- FALSE
+stopifnot(!legacy$install_packages_if_missing(c(example = NA_character_)))
+legacy$install_missing_packages <- TRUE
+stopifnot(legacy$install_packages_if_missing(c(example = NA_character_)))
+cat("Legacy package setup entry point preserved.\n")

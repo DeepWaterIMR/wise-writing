@@ -62,6 +62,12 @@ optional_packages <- c(
 # R_AW_INSTALL_MISSING=false as a hard deny and never installs into renv-managed projects.
 install_missing_packages <- FALSE
 
+# Compatibility entry point: installation policy remains explicit and shared.
+install_packages_if_missing <- function(pkgs) {
+  package_setup(pkgs, install_missing_packages = install_missing_packages,
+                project_root = getwd(), attach = function(packages) invisible(NULL))
+}
+
 # Install-and-attach an optional package at the point of use, e.g. ensure_packages("oce").
 ensure_packages <- function(...) {
   nms <- c(...)
