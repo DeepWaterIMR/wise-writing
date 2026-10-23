@@ -10,7 +10,7 @@
 # editing config.yaml rather than by editing the documents.
 #
 # Usage:
-#   source("<academic-writing>/scaffold.R")
+#   source("<wise-writing>/scaffold.R")
 #   scaffold_document("config.yaml", "../my-project", types = "manuscript")
 #   scaffold_document("config.yaml", "../my-project", types = c("manuscript", "data-report"))
 #   scaffold_document("config.yaml", "../my-project", types = "manuscript", dry = TRUE)
@@ -72,9 +72,9 @@ DOCUMENT_TYPES <- list(
   yaml::yaml.load(txt)
 }
 
-# --- Locate the academic-writing repository ------------------------------------------------
-# Order: explicit argument -> ~/.academic-writing/config.json (written by the install skill)
-# -> the folder this script was sourced from -> the working directory -> error.
+# --- Locate the wise-writing repository ----------------------------------------------------
+# Order: explicit argument -> ~/.wise-writing/config.json -> legacy config ->
+# the folder this script was sourced from -> the working directory -> error.
 .find_pack_root <- function(pack = NULL) {
   valid <- function(p) {
     !is.null(p) && dir.exists(file.path(p, "project-template")) &&
@@ -82,10 +82,12 @@ DOCUMENT_TYPES <- list(
   }
   if (valid(pack)) return(normalizePath(pack))
 
-  cfg_json <- path.expand("~/.academic-writing/config.json")
-  if (file.exists(cfg_json) && requireNamespace("jsonlite", quietly = TRUE)) {
-    p <- tryCatch(jsonlite::read_json(cfg_json)$academic_writing_path, error = function(e) NULL)
-    if (valid(p)) return(normalizePath(p))
+  cfg_jsons <- path.expand(c("~/.wise-writing/config.json", "~/.academic-writing/config.json"))
+  if (requireNamespace("jsonlite", quietly = TRUE)) {
+    for (cfg_json in cfg_jsons[file.exists(cfg_jsons)]) {
+      p <- tryCatch(jsonlite::read_json(cfg_json)$academic_writing_path, error = function(e) NULL)
+      if (valid(p)) return(normalizePath(p))
+    }
   }
 
   for (frame in rev(sys.frames())) {
@@ -99,7 +101,7 @@ DOCUMENT_TYPES <- list(
   if (valid(getwd())) return(normalizePath(getwd()))
 
   stop(
-    "Cannot locate the academic-writing repository. Pass it explicitly via `pack=`.",
+    "Cannot locate the wise-writing repository. Pass it explicitly via `pack=`.",
     call. = FALSE
   )
 }
@@ -202,7 +204,7 @@ DOCUMENT_TYPES <- list(
 #' @param config Path to a filled-in `config.yaml`.
 #' @param target Directory to create. Must not exist, or must be empty.
 #' @param types One or more document types. See `names(DOCUMENT_TYPES)`.
-#' @param pack Path to the academic-writing repository. Located automatically when omitted.
+#' @param pack Path to the wise-writing repository. Located automatically when omitted.
 #' @param dry Preview without writing anything.
 #' @return The target path, invisibly.
 scaffold_document <- function(config, target, types = "manuscript", pack = NULL, dry = FALSE) {

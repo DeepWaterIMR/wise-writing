@@ -9,7 +9,7 @@ supervised co-author.
 > agents**. Claude Code reads [`CLAUDE.md`](CLAUDE.md).
 
 This project was scaffolded from
-[academic-writing](https://github.com/DeepWaterIMR/academic-writing). Its skills carry the
+[wise-writing](https://github.com/DeepWaterIMR/wise-writing). Its skills carry the
 rules; read them rather than guessing:
 
 - **`academic-style`** — how the prose must read. Load it before writing or editing any text.

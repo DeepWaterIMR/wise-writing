@@ -37,7 +37,7 @@ manuscript is expensive; agreeing an outline is cheap.
 If the project does not exist yet:
 
 ```r
-source("<academic-writing>/scaffold.R")
+source("<wise-writing>/scaffold.R")
 scaffold_document("config.yaml", "../my-paper", types = "manuscript")
 ```
 

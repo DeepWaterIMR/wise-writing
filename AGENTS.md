@@ -1,4 +1,4 @@
-# AGENTS.md — academic-writing
+# AGENTS.md — wise-writing
 
 You are helping a scientist write an **academic document** — a manuscript, data report,
 cruise report, assessment report, advice sheet, or benchmark report — in the fields of
@@ -12,7 +12,7 @@ accountable for every word; you are a supervised co-author.
 
 ---
 
-## What academic-writing is
+## What wise-writing is
 
 A **vendor-neutral knowledge pack** — not a trained model, not an R package, not a repo you
 fill in place. It carries a writing style, a set of technical conventions, and six document
@@ -20,7 +20,7 @@ templates. You learn them by *reading this repo at runtime*.
 
 It is deliberately **general-purpose**. Domain machinery lives elsewhere:
 [BAIT](https://github.com/DeepWaterIMR/BAIT) for IMR Biotic data access, privacy, maps, and
-life history; [index-template](https://github.com/DeepWaterIMR/index-template) for sdmTMB
+life history; [index-wise](https://github.com/DeepWaterIMR/index-wise) for sdmTMB
 survey indices. This pack owns **style, structure, and reproducible-document conventions**.
 If a task needs data or a model, defer to those packs; if it needs prose, structure, or a
 document that renders, it is yours.
@@ -53,15 +53,15 @@ If a request would breach any of the above, stop and explain rather than comply.
 
 ## Working across projects
 
-academic-writing is installed **once per machine** and used in **many** projects — not cloned
+wise-writing is installed **once per machine** and used in **many** projects — not cloned
 into each repo. When set up via `academic-writing-install`, its location is saved to
-`~/.academic-writing/config.json` and its skills are copied into the agent's user-level skills
-folder (`~/.claude/skills/`, `~/.codex/skills/`, `~/.agents/skills/`).
+`~/.wise-writing/config.json` and its skills are copied into the agent's user-level skills
+folder (`~/.claude/skills/` and `~/.agents/skills/` for Codex and other agents).
 
 - **Trigger:** the user asks to write, revise, or review any academic document; or to start a
   manuscript, data report, cruise report, assessment report, advice sheet, or benchmark
   report.
-- **If it is not installed yet** (e.g. *"install https://github.com/DeepWaterIMR/academic-writing"*),
+- **If it is not installed yet** (e.g. *"install https://github.com/DeepWaterIMR/wise-writing"*),
   run `skills/academic-writing-install/SKILL.md` first.
 - **Never install at a filesystem root or system directory.** Refuse and suggest a safe
   user-space location.
@@ -75,7 +75,7 @@ load a reference file only when you need it.
 
 | If the user wants to…                                          | Read |
 |----------------------------------------------------------------|------|
-| Install / set up academic-writing                              | `skills/academic-writing-install/SKILL.md` |
+| Install / set up wise-writing                              | `skills/academic-writing-install/SKILL.md` |
 | Update it (git pull + re-sync skills)                          | `skills/academic-writing-update/SKILL.md` |
 | **Write or fix academic prose** (any editor, incl. Word)       | `skills/academic-style/SKILL.md` |
 | **Create or edit a Quarto document** (structure, YAML, render) | `skills/academic-conventions/SKILL.md` |

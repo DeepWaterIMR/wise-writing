@@ -1,4 +1,4 @@
 interface:
-  display_name: "Install academic-writing"
-  short_description: "Clone academic-writing and install its skills for every agent."
-  default_prompt: "Install academic-writing on this machine and make its skills available in every project."
+  display_name: "Install wise-writing"
+  short_description: "Clone wise-writing and install its skills for every agent."
+  default_prompt: "Install wise-writing on this machine and make its skills available in every project."

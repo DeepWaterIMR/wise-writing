@@ -27,7 +27,7 @@ their question.
 ## Step 1 — Scaffold
 
 ```r
-source("<academic-writing>/scaffold.R")
+source("<wise-writing>/scaffold.R")
 scaffold_document("config.yaml", "../cruise-2027", types = "cruise-report")
 ```
 

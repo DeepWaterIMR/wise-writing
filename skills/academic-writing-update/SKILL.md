@@ -1,18 +1,19 @@
 ---
 name: academic-writing-update
-description: Update academic-writing to the latest version — git pull the repository and re-sync its skills into the machine's global skills folders. Use when the user says "update academic-writing", "pull the latest academic-writing", or asks for newer writing skills or document templates.
+description: Update wise-writing to the latest version — git pull the repository and re-sync its skills into the machine's global skills folders. Use when the user says "update wise-writing", "pull the latest wise-writing", or asks for newer writing skills or document templates.
 metadata:
   version: "0.1.0"
 license: MIT
 ---
 
-# Update academic-writing
+# Update wise-writing
 
 ## Step 1 — Find the install
 
-Read `academic_writing_path` from `~/.academic-writing/config.json`. If the file is missing or
-the path is gone, run [`../academic-writing-install/SKILL.md`](../academic-writing-install/SKILL.md)
-instead.
+Read `academic_writing_path` from `~/.wise-writing/config.json` first. If it is missing or
+invalid, check the legacy `~/.academic-writing/config.json`; both use the compatible
+`academic_writing_path` key. If neither path resolves, run
+[`../academic-writing-install/SKILL.md`](../academic-writing-install/SKILL.md) instead.
 
 Note the current version before pulling, so you can say what changed:
 
@@ -38,20 +39,19 @@ decide; do not rebase or merge on their behalf.
 
 ```bash
 cp -R "<path>/skills/." ~/.claude/skills/
-cp -R "<path>/skills/." ~/.codex/skills/
 cp -R "<path>/skills/." ~/.agents/skills/
 ```
 
 ```powershell
 Copy-Item -Recurse -Force "<path>/skills/*" "$HOME/.claude/skills/"
-Copy-Item -Recurse -Force "<path>/skills/*" "$HOME/.codex/skills/"
 Copy-Item -Recurse -Force "<path>/skills/*" "$HOME/.agents/skills/"
 ```
 
-Sync only the locations listed in `skills_synced_to`, plus any agent installed since.
+Sync only the locations listed in `skills_synced_to`, plus any agent installed since. For Codex,
+use `~/.agents/skills/`.
 
 **Touch only this pack's skills** — the `academic-*` folders and `scientific-quarto-review`.
-Leave BAIT's `biotic-*` and index-template's `index-*` skills alone.
+Leave BAIT's `biotic-*` and index-wise's `index-*` skills alone.
 
 **Remove a skill that no longer exists upstream.** A copy makes new files appear but never
 removes deleted ones, so compare the folder lists and delete the stragglers from the synced

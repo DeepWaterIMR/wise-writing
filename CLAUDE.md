@@ -1,4 +1,4 @@
-# CLAUDE.md — academic-writing (Claude Code)
+# CLAUDE.md — wise-writing (Claude Code)
 
 This is the **Claude Code** pointer. The full agent contract is in [`AGENTS.md`](AGENTS.md) —
 read it. This file only adds Claude-specific notes.
@@ -32,7 +32,7 @@ commit data or private paths here.**
   any academic document, invoke the matching skill. `academic-style` and
   `academic-conventions` load together for Quarto work.
 - **Defer to the sibling packs.** Biotic data access → BAIT's `biotic-*` skills. sdmTMB survey
-  indices → index-template's `index-*` skills. This pack does not duplicate them.
+  indices → index-wise's `index-*` skills. This pack does not duplicate them.
 - **Plan mode** — use it to agree the document's structure and argument before writing prose.
   Restructuring a half-written manuscript is expensive; agreeing an outline is cheap.
 - **Code review before render** — Quarto renders can be slow. Run `/code-review` on changed

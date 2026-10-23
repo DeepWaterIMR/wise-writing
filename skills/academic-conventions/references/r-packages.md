@@ -31,7 +31,7 @@ Declared in `R/0_setup.R` but installed and attached only when a chunk asks for 
 `officer`, `officedown`, `xml2` (Word post-processing) · `jsonlite` · `DBI`, `duckdb`
 (database access — see [BAIT](https://github.com/DeepWaterIMR/BAIT)) · `RstoxData`,
 `RstoxUtils` · `oce` (hydrography) · `icesAdvice` · `sdmTMB`, `sdmTMBexperiments` (see
-[index-template](https://github.com/DeepWaterIMR/index-template)) · `spict` · `ggFishPlots` ·
+[index-wise](https://github.com/DeepWaterIMR/index-wise)) · `spict` · `ggFishPlots` ·
 `fishmethods` · `blockCV` · `rprojroot`.
 
 Keeping these out of the default set matters: a first run on a new machine that installs
@@ -77,4 +77,4 @@ A package that only formats output does not need citing. A package that changes 
 
 `r-package-setup` (from [BAIT](https://github.com/DeepWaterIMR/BAIT)) covers the loader
 pattern in more depth if you are writing one from scratch. Do not duplicate BAIT's database or
-index-template's modelling machinery here — call their skills instead.
+index-wise's modelling machinery here — call their skills instead.

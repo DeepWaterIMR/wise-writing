@@ -1,4 +1,4 @@
-# Contributing to academic-writing
+# Contributing to wise-writing
 
 Thanks for helping. This repo is a **knowledge pack**: it contains instructions, templates,
 and document assets, and it contains **no data**.
@@ -58,4 +58,4 @@ before committing — the hook keeps a hand-set version and only refreshes the d
 This pack owns **style, document structure, and reproducible-document conventions**. It does
 not own data access or statistical modelling. If your change is about IMR Biotic data, it
 belongs in [BAIT](https://github.com/DeepWaterIMR/BAIT); if it is about sdmTMB survey indices,
-it belongs in [index-template](https://github.com/DeepWaterIMR/index-template).
+it belongs in [index-wise](https://github.com/DeepWaterIMR/index-wise).

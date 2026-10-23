@@ -60,7 +60,7 @@ requirement. Neither does a generic byline such as “project analysis”.
 ## Step 1 — Scaffold
 
 ```r
-source("<academic-writing>/scaffold.R")
+source("<wise-writing>/scaffold.R")
 scaffold_document("config.yaml", "../my-analysis", types = "data-report")
 ```
 
@@ -159,7 +159,7 @@ with `cap_maturity` built as a string in the preceding chunk.
 
 Life-history parameters — maturity ogives, growth curves, length–weight — come from
 **ggFishPlots**; IMR Biotic data access comes from BAIT's `biotic-*` skills; sdmTMB survey
-indices from index-template's `index-*` skills. Call those rather than reimplementing them.
+indices from index-wise's `index-*` skills. Call those rather than reimplementing them.
 
 ## Done
 

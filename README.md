@@ -1,15 +1,17 @@
-<!-- badges / logo go here once available -->
+[![Part of Fiskwise](https://deepwaterimr.github.io/fiskwise/assets/part-of-fiskwise.svg)](https://deepwaterimr.github.io/fiskwise/)
 
-# ✍️ academic-writing — Write scientific documents with AI agents
+# ✍️ wise-writing — Write scientific documents with AI agents
 
 <!-- version -->
-**Version 0.1.17** (2026-10-14)
+**Version 0.1.18** (2026-10-23)
 <!-- /version -->
+
+This repository is part of [Fiskwise](https://github.com/DeepWaterIMR/fiskwise), with its [project hub](https://deepwaterimr.github.io/fiskwise/). See [MIGRATION.md](MIGRATION.md) for repository and local config migration notes.
 
 
 **Teach your AI agent to write like a scientist — one style, one set of technical conventions, and six ready document templates.**
 
-academic-writing is a knowledge pack that turns a general coding agent (Claude Code, Codex, Cursor, Mistral, a local model, …) into a competent, *supervised* co-author for academic writing in **ecology and fisheries science**. It carries:
+wise-writing is a knowledge pack that turns a general coding agent (Claude Code, Codex, Cursor, Mistral, a local model, …) into a competent, *supervised* co-author for academic writing in **ecology and fisheries science**. It carries:
 
 1. **A writing style** — accountability, tense, hedging, numbers, units, species names, figure and table wording. Editor-independent: it applies in Quarto, Word, LaTeX, or a plain text box.
 2. **Technical conventions** — reproducible Quarto and R: project structure, YAML, BibTeX, ICES figure widths, inline R instead of hard-coded numbers, local Git, rendering to HTML, Word, and PDF.
@@ -22,7 +24,7 @@ academic-writing is a knowledge pack that turns a general coding agent (Claude C
 1. **Install it.** Type this to your agent:
 
    ```
-   install https://github.com/DeepWaterIMR/academic-writing
+   install https://github.com/DeepWaterIMR/wise-writing
    ```
 
    It clones the repo and copies the skills into your agent's global skills folder, once per machine. See [`skills/academic-writing-install`](skills/academic-writing-install/SKILL.md).
@@ -31,7 +33,7 @@ academic-writing is a knowledge pack that turns a general coding agent (Claude C
 
    ```
    Let's write this year's assessment report for beaked redfish, using
-   academic-writing. The previous report is in docs/old_reports.
+   wise-writing. The previous report is in docs/old_reports.
    ```
 
    The agent agrees the structure and the figures with you, scaffolds a project, and starts writing.
@@ -78,16 +80,16 @@ Documents are written locally, committed to a **local** Git repository with **no
 
 ## 🧰 Siblings
 
-academic-writing is deliberately general-purpose. Domain machinery lives elsewhere:
+wise-writing is deliberately general-purpose. Domain machinery lives elsewhere:
 
 - [**BAIT**](https://github.com/DeepWaterIMR/BAIT) — IMR Biotic data access, privacy, maps, life history.
-- [**index-template**](https://github.com/DeepWaterIMR/index-template) — sdmTMB spatiotemporal survey indices.
-- [**spict-template**](https://github.com/DeepWaterIMR/spict-template) — SPiCT biomass-dynamic stock assessments.
-- [**presentation-template**](https://github.com/DeepWaterIMR/presentation-template) — Quarto RevealJS slides for scientific presentations.
+- [**index-wise**](https://github.com/DeepWaterIMR/index-wise) — sdmTMB spatiotemporal survey indices.
+- [**spict-wise**](https://github.com/DeepWaterIMR/spict-wise) — SPiCT biomass-dynamic stock assessments.
+- [**wise-presentations**](https://github.com/DeepWaterIMR/wise-presentations) — Quarto RevealJS slides for scientific presentations.
 
 Install whichever you need alongside; the skills stay out of each other's way.
 
-**index-template and spict-template build *on* academic-writing** rather than beside it: they generate projects in this pack's layout and defer to its style and document skills. spict-template goes further and calls `scaffold_document()` directly, overlaying its SPiCT layer on the project that produces, so there is one copy of the shared layout, helpers, and rendering pipeline and it lives here. A fix to `docs/render.R`, `R/0_setup.R`, or a document skeleton belongs in this repo; the analyses that fill them belong in theirs. The chain runs BAIT → index-template → spict-template: Biotic data becomes a survey index, the index becomes a stock assessment, and academic-writing turns each stage into a document someone can read.
+**index-wise and spict-wise build *on* wise-writing** rather than beside it: they generate projects in this pack's layout and defer to its style and document skills. spict-wise goes further and calls `scaffold_document()` directly, overlaying its SPiCT layer on the project that produces, so there is one copy of the shared layout, helpers, and rendering pipeline and it lives here. A fix to `docs/render.R`, `R/0_setup.R`, or a document skeleton belongs in this repo; the analyses that fill them belong in theirs. The chain runs BAIT → index-wise → spict-wise: Biotic data becomes a survey index, the index becomes a stock assessment, and wise-writing turns each stage into a document someone can read.
 
 ## 🚨 You are still in charge
 

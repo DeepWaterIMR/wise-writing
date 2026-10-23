@@ -6,7 +6,7 @@ A filled-in project configuration. Copy it, edit the identity and author fields,
 to `scaffold_document()`:
 
 ```r
-source("<academic-writing>/scaffold.R")
+source("<wise-writing>/scaffold.R")
 scaffold_document("config.yaml", "../my-paper", types = "manuscript")
 ```
 

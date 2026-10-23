@@ -6,7 +6,7 @@ it. This file only adds Claude-specific notes.
 ## What this project is
 
 **{{PROJECT_TITLE}}** — a {{DOC_TYPE_LABEL}} written in Quarto with R, scaffolded from
-[academic-writing](https://github.com/DeepWaterIMR/academic-writing). The authors in
+[wise-writing](https://github.com/DeepWaterIMR/wise-writing). The authors in
 `config.yaml` are accountable for the text.
 
 ## Skills to load
@@ -15,7 +15,7 @@ it. This file only adds Claude-specific notes.
 - **`academic-conventions`** alongside it for anything touching a `.qmd`.
 - **`{{DOC_SKILL}}`** for this document's structure and output formats.
 - **`scientific-quarto-review`** before a long render, and for audits.
-- Data access → BAIT's `biotic-*` skills. sdmTMB indices → index-template's `index-*` skills.
+- Data access → BAIT's `biotic-*` skills. sdmTMB indices → index-wise's `index-*` skills.
   This project does not reimplement either.
 
 ## Claude-specific notes

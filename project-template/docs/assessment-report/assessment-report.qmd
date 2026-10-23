@@ -64,7 +64,7 @@ source(here::here("R", "report_helpers.R"))
 # Every headline number the chapter quotes — SSB, F, recruitment, the advice — derived
 # once, from the model output. Nothing in the prose is typed by hand: an assessment chapter
 # is rewritten each year against a new model run, and a stale number is the classic error.
-# For a SPiCT assessment, use spict-template for the model inputs, fitting, and diagnostics;
+# For a SPiCT assessment, use spict-wise for the model inputs, fitting, and diagnostics;
 # derive this chapter's settings, estimates, diagnostics, and reference points from its
 # selected run rather than recreating model code here.
 ```

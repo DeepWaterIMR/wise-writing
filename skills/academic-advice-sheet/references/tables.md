@@ -85,5 +85,5 @@ A missing year then fails loudly instead of silently shifting every row by one. 
 list. Never pad, recycle, or shorten the year range to make the lengths match.**
 
 
-[spict-template](https://github.com/DeepWaterIMR/spict-template)'s `R/advice_tables.R` is a
+[spict-wise](https://github.com/DeepWaterIMR/spict-wise)'s `R/advice_tables.R` is a
 worked implementation of everything above.

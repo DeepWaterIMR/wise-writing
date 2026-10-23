@@ -20,14 +20,14 @@ new assessment, so anything typed rather than derived goes stale silently.
 ## Step 1 — Scaffold
 
 ```r
-source("<academic-writing>/scaffold.R")
+source("<wise-writing>/scaffold.R")
 scaffold_document("config.yaml", "../stock-advice-2027", types = "advice-sheet")
 ```
 
 The skeleton is `docs/advice-sheet/advice-sheet.qmd`. Both Word templates ship with it.
 
 For a **SPiCT** assessment, use
-[spict-template](https://github.com/DeepWaterIMR/spict-template) alongside this skill: it
+[spict-wise](https://github.com/DeepWaterIMR/spict-wise) alongside this skill: it
 scaffolds this document already wired to a saved assessment summary, and its
 `R/advice_tables.R` is a worked implementation of the table idiom in
 [`references/tables.md`](references/tables.md).
@@ -170,7 +170,7 @@ goes through the script and not the button.
 The assessment behind the advice is an
 [`../academic-assessment-report/SKILL.md`](../academic-assessment-report/SKILL.md). For a SPiCT
 biomass-dynamic assessment, the model, its diagnostics, and the wiring from the assessment to
-this sheet come from [spict-template](https://github.com/DeepWaterIMR/spict-template).
+this sheet come from [spict-wise](https://github.com/DeepWaterIMR/spict-wise).
 
 ## Done
 

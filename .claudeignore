@@ -1,4 +1,4 @@
-# Files agents should not read from this repo. academic-writing contains no data, so
+# Files agents should not read from this repo. wise-writing contains no data, so
 # this list is a safety net rather than a rule with anything to catch today.
 #
 # Research data lives in the project folder the agent scaffolds for the user, never here.

@@ -1,4 +1,4 @@
 interface:
-  display_name: "Update academic-writing"
-  short_description: "Pull the latest academic-writing and re-sync its skills."
-  default_prompt: "Update academic-writing to the latest version and tell me what changed."
+  display_name: "Update wise-writing"
+  short_description: "Pull the latest wise-writing and re-sync its skills."
+  default_prompt: "Update wise-writing to the latest version and tell me what changed."

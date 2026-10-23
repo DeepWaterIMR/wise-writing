@@ -22,7 +22,7 @@ override this pack's defaults wherever they differ.
 ## Step 1 — Scaffold
 
 ```r
-source("<academic-writing>/scaffold.R")
+source("<wise-writing>/scaffold.R")
 scaffold_document("config.yaml", "../stock-assessment-2027", types = "assessment-report")
 ```
 
@@ -81,7 +81,7 @@ Follow the group's list. In outline:
 
 ## Writing it
 
-- **For a SPiCT assessment, use [spict-template](https://github.com/DeepWaterIMR/spict-template)
+- **For a SPiCT assessment, use [spict-wise](https://github.com/DeepWaterIMR/spict-wise)
   alongside this skill.** That template owns the biomass-dynamic model inputs, fitting, and
   diagnostics; this skill owns the working-group chapter. Derive the chapter's settings,
   estimates, diagnostics, and reference-point statements from the selected SPiCT run rather
