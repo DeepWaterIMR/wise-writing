@@ -3,7 +3,7 @@
 # ✍️ wise-writing — Write scientific documents with AI agents
 
 <!-- version -->
-**Version 0.1.19** (2026-10-23)
+**Version 0.1.20** (2026-10-23)
 <!-- /version -->
 
 This repository is part of [Fiskwise](https://github.com/DeepWaterIMR/fiskwise), with its [project hub](https://deepwaterimr.github.io/fiskwise/). See [MIGRATION.md](MIGRATION.md) for repository and local config migration notes.
@@ -27,7 +27,7 @@ wise-writing is a knowledge pack that turns a general coding agent (Claude Code,
    install https://github.com/DeepWaterIMR/wise-writing
    ```
 
-   It clones the repo and copies the skills into your agent's global skills folder, once per machine. See [`skills/academic-writing-install`](skills/academic-writing-install/SKILL.md).
+   It clones the repo and installs its skills individually into your agent's global skills folder, once per machine. Matching symlinks stay linked to the checkout; other entries are backed up before replacement. See [`skills/academic-writing-install`](skills/academic-writing-install/SKILL.md).
 
 2. **Start a document within a project:**
 
@@ -50,7 +50,7 @@ wise-writing is a knowledge pack that turns a general coding agent (Claude Code,
 
 | Folder | Contents |
 |---|---|
-| `skills/` | Twelve skills. `academic-style` and `academic-conventions` are the foundation; six are document types; the rest install, update, review, and set up the toolchain |
+| `skills/` | Fifteen skills, including shared R code, package setup, and Quarto reporting guidance |
 | `project-template/` | The project skeleton a scaffolded project gets, with the shared R helpers and the six `.qmd` skeletons |
 | `examples/` | A filled-in `config.yaml` to copy |
 | `scaffold.R` | `scaffold_document()` — creates a project from `config.yaml` |
@@ -69,6 +69,9 @@ wise-writing is a knowledge pack that turns a general coding agent (Claude Code,
 | [`academic-advice-sheet`](skills/academic-advice-sheet/SKILL.md) | A fishing-opportunities advice sheet for IMR, JRN-AFWG, or ICES assessments|
 | [`academic-benchmark-report`](skills/academic-benchmark-report/SKILL.md) | A full revision of an assessment method, and its stock annex |
 | [`scientific-quarto-review`](skills/scientific-quarto-review/SKILL.md) | Review and audit an existing `.qmd` or `.Rmd` |
+| [`r-code-style`](skills/r-code-style/SKILL.md) | Tidyverse-oriented R style, documentation, formatting, and focused checks |
+| [`r-package-setup`](skills/r-package-setup/SKILL.md) | Consent-aware CRAN/GitHub package loading; renv-aware |
+| [`quarto-reporting`](skills/quarto-reporting/SKILL.md) | General HTML, Word, and PDF report workflow and QA |
 | [`academic-toolchain-setup`](skills/academic-toolchain-setup/SKILL.md) | Install Git, R, Quarto, Rtools, TinyTeX. Windows first |
 | [`academic-writing-install`](skills/academic-writing-install/SKILL.md) · [`academic-writing-update`](skills/academic-writing-update/SKILL.md) | Set the pack up, and keep it current |
 

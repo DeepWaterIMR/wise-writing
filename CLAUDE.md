@@ -12,12 +12,12 @@ read it. This file only adds Claude-specific notes.
 A **knowledge pack** (like [BAIT](https://github.com/DeepWaterIMR/BAIT)) that teaches an agent
 one academic writing style, one set of Quarto/R technical conventions, and six document
 templates for ecology and fisheries science. It is installed once per machine; its skills live
-in `~/.claude/skills/` as `academic-*` plus `scientific-quarto-review`. It is **public — never
+in `~/.claude/skills/` as `academic-*`, `r-code-style`, `r-package-setup`, `quarto-reporting`, and `scientific-quarto-review`. It is **public — never
 commit data or private paths here.**
 
 ## Where things are
 
-- **Skills** — `skills/academic-*/SKILL.md`. Installed globally by
+- **Skills** — `skills/`. Installed globally by
   `skills/academic-writing-install`.
 - **Depth** — `skills/<skill>/references/*.md`. Load one only when the task needs it; do not
   read the whole set up front.
@@ -32,8 +32,9 @@ commit data or private paths here.**
   `ai/memory/` folder (read `ai/memory/MEMORY.md` first, write new memory files there). Do
   **not** use `~/.claude/projects/.../memory/` for project facts — that is only for user-level
   preferences and identity.
-- **Skills** — when the user types `/academic-...`, or asks to write, revise, review, or start
-  any academic document, invoke the matching skill. `academic-style` and
+- **Skills** — invoke the matching `academic-*` skill for scientific prose and document types,
+  `r-code-style` for R conventions, `r-package-setup` for package loading, and
+  `quarto-reporting` for general multi-format reporting. `academic-style` and
   `academic-conventions` load together for Quarto work.
 - **Defer to the sibling packs.** Biotic data access → BAIT's `biotic-*` skills. sdmTMB survey
   indices → index-wise's `index-*` skills. This pack does not duplicate them.

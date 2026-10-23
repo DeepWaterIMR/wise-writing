@@ -15,6 +15,8 @@ rules; read them rather than guessing:
 - **`academic-style`** — how the prose must read. Load it before writing or editing any text.
 - **`academic-conventions`** — how the document is built. Load it with the style skill for
   any Quarto work.
+- **`r-code-style`** — conventions for creating or editing R code.
+- **`r-package-setup`** — package declarations, loading, and explicit installation consent.
 - **`{{DOC_SKILL}}`** — this document type's structure and output formats.
 - **`scientific-quarto-review`** — before a long render, and for any audit.
 
@@ -58,6 +60,8 @@ rules; read them rather than guessing:
    through `cfg`.
 5. **Add a package by adding one line to `R/0_setup.R`** — never an `install.packages()` call
    inside a document. Optional packages load through `ensure_packages()` at the point of use.
+   Installation is off by default; get consent before setting `install_missing_packages` to
+   `TRUE`. `renv` manages its own library.
 6. **HTML renders from the Preview/Render button** with no arguments. Everything else goes
    through `docs/render.R`. Keep it that way.
 7. **Review before a long render.** A typo found after a two-hour render costs two hours.

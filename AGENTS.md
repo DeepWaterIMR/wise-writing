@@ -59,8 +59,9 @@ If a request would breach any of the above, stop and explain rather than comply.
 
 wise-writing is installed **once per machine** and used in **many** projects — not cloned
 into each repo. When set up via `academic-writing-install`, its location is saved to
-`~/.wise-writing/config.json` and its skills are copied into the agent's user-level skills
-folder (`~/.claude/skills/` and `~/.agents/skills/` for Codex and other agents).
+`~/.wise-writing/config.json` and its skills are linked or copied individually into the
+agent's user-level skills folder (`~/.claude/skills/` and `~/.agents/skills/` for Codex and
+other agents).
 
 - **Trigger:** the user asks to write, revise, or review any academic document; or to start a
   manuscript, data report, cruise report, assessment report, advice sheet, or benchmark
@@ -84,6 +85,9 @@ load a reference file only when you need it.
 | **Write or fix academic prose** (any editor, incl. Word)       | `skills/academic-style/SKILL.md` |
 | **Create or edit a Quarto document** (structure, YAML, render) | `skills/academic-conventions/SKILL.md` |
 | Review or audit an existing `.qmd` / `.Rmd`                    | `skills/scientific-quarto-review/SKILL.md` |
+| Standardize or review R code                                     | `skills/r-code-style/SKILL.md` |
+| Set up or load R packages                                        | `skills/r-package-setup/SKILL.md` |
+| Build a general multi-format Quarto report                       | `skills/quarto-reporting/SKILL.md` |
 | Install Git, Quarto, R, or a build toolchain                   | `skills/academic-toolchain-setup/SKILL.md` |
 | Start a **manuscript**                                         | `skills/academic-manuscript/SKILL.md` |
 | Start a **data report**                                        | `skills/academic-data-report/SKILL.md` |
@@ -108,7 +112,7 @@ or editing any Quarto document, and `academic-style` alone when only prose is at
 4. **Cite the software that influenced the results** — base R and every package — using
    `citation()`, in the same section as the AI disclosure.
 5. **Keep the analysis reproducible from source data.** Comment the code, document functions
-   with Roxygen2, number scripts by run order.
+   with Roxygen2, number scripts by run order, and apply `r-code-style` to new or touched R code.
 6. **HTML is the preview format.** It must render from the editor's Preview/Render button
    without a helper script. Other formats go through `docs/render.R`.
 7. **Flag, do not guess.** An unverifiable citation, an uncertain statistic, or a claim you

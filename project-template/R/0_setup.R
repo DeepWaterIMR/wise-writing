@@ -6,6 +6,8 @@
 
 `%||%` <- function(a, b) if (is.null(a)) b else a
 
+source("R/package_setup.R")
+
 # --- Packages ---------------------------------------------------------------------------
 # Every package the project uses, named ONCE. The value is the GitHub repository for
 # packages that are not on CRAN, and NA for the rest.
@@ -56,60 +58,9 @@ optional_packages <- c(
   spict = "DTUAqua/spict/spict"
 )
 
-# Set to FALSE (or export R_AW_INSTALL_MISSING=false) to run against the library as it is.
-install_missing_packages <- !identical(
-  tolower(Sys.getenv("R_AW_INSTALL_MISSING", unset = "true")), "false"
-)
-
-install_packages_if_missing <- function(pkgs) {
-  missing <- pkgs[
-    !vapply(names(pkgs), requireNamespace, logical(1), quietly = TRUE)
-  ]
-  if (!length(missing)) return(invisible(NULL))
-
-  # Rscript, knitr and Quarto sessions often start without a CRAN mirror and without a
-  # writable user library. Both are needed before installing.
-  repos <- getOption("repos")
-  if (is.na(repos["CRAN"]) || repos["CRAN"] == "@CRAN@") {
-    repos["CRAN"] <- "https://cloud.r-project.org"
-    options(repos = repos)
-  }
-
-  lib <- strsplit(Sys.getenv("R_LIBS_USER"), .Platform$path.sep)[[1]][1]
-  if (!is.na(lib) && nzchar(lib)) {
-    if (!dir.exists(lib)) dir.create(lib, recursive = TRUE)
-    .libPaths(c(lib, .libPaths()))
-  }
-
-  # Never fall into the interactive "install from sources?" question, which hangs
-  # unattended renders on macOS and Windows.
-  options(install.packages.compile.from.source = "never")
-
-  if (any(!is.na(missing)) && !requireNamespace("remotes", quietly = TRUE)) {
-    install.packages("remotes")
-  }
-
-  for (package in names(missing)) {
-    message("Installing missing package: ", package)
-    if (is.na(missing[[package]])) {
-      install.packages(package)
-    } else {
-      remotes::install_github(missing[[package]], upgrade = "never")
-    }
-  }
-
-  still_missing <- names(missing)[
-    !vapply(names(missing), requireNamespace, logical(1), quietly = TRUE)
-  ]
-  if (length(still_missing)) {
-    stop(
-      "Could not install: ", paste(still_missing, collapse = ", "),
-      "\nSee the academic-toolchain-setup skill if a compiler toolchain is missing.",
-      call. = FALSE
-    )
-  }
-  invisible(NULL)
-}
+# Installation is off unless the user authorizes it for this run. The helper also honors
+# R_AW_INSTALL_MISSING=false as a hard deny and never installs into renv-managed projects.
+install_missing_packages <- FALSE
 
 # Install-and-attach an optional package at the point of use, e.g. ensure_packages("oce").
 ensure_packages <- function(...) {
@@ -122,17 +73,15 @@ ensure_packages <- function(...) {
       paste(unknown, collapse = ", ")
     )
   }
-  if (isTRUE(install_missing_packages)) install_packages_if_missing(known[nms])
-  invisible(lapply(nms, function(package) {
-    suppressPackageStartupMessages(library(package, character.only = TRUE))
-  }))
+  package_setup(
+    known[nms],
+    install_missing_packages = install_missing_packages,
+    project_root = getwd()
+  )
 }
 
-if (isTRUE(install_missing_packages)) install_packages_if_missing(packages)
-
-invisible(lapply(names(packages), function(package) {
-  suppressPackageStartupMessages(library(package, character.only = TRUE))
-}))
+package_setup(packages, install_missing_packages = install_missing_packages,
+              project_root = getwd())
 
 # --- Config -----------------------------------------------------------------------------
 # Documents may be rendered with the working directory at the project root (recommended) or

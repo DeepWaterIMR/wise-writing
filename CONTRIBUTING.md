@@ -23,8 +23,9 @@ grep -rIn -e '/Users/' -e 'OneDrive' -e 'CloudStorage' -e 'C:\\Users' .
 
 ## Conventions
 
-- **One skill per folder**, `skills/<name>/SKILL.md`, kebab-case, prefixed `academic-`.
-  `name` in the frontmatter equals the folder name.
+- **One skill per folder**, `skills/<name>/SKILL.md`, kebab-case. Shared reusable skills may
+  use their topic name (for example, `r-code-style`). The `name` in frontmatter must equal
+  the folder name.
 - **Keep `SKILL.md` short** — roughly 150 lines. It is read in full, often by a model with a
   small context window. Anything longer belongs in `references/<topic>.md`, linked from the
   skill and loaded on demand.

@@ -2,7 +2,7 @@
 name: academic-writing-update
 description: Update wise-writing to the latest version — git pull the repository and re-sync its skills into the machine's global skills folders. Use when the user says "update wise-writing", "pull the latest wise-writing", or asks for newer writing skills or document templates.
 metadata:
-  version: "0.1.0"
+  version: "0.2.0"
 license: MIT
 ---
 
@@ -43,8 +43,11 @@ symlink when it resolves to the matching source skill, and skip any source and d
 resolve to the same path. Before replacing a differing directory or link, move that entry to a
 timestamped backup. Never copy the pack tree onto itself or delete a skills root.
 
-**Touch only this pack's skills** — the `academic-*` folders and `scientific-quarto-review`.
-Leave BAIT's `biotic-*` and index-wise's `index-*` skills alone.
+**Touch only skill IDs owned by this repository**: the folders currently under `<path>/skills/`
+and obsolete wise-writing skill IDs. That includes the shared `r-code-style`,
+`r-package-setup`, and `quarto-reporting` skills now maintained here. Leave BAIT's `biotic-*`
+and index-wise's `index-*` skills alone. A BAIT folder marked `metadata.forwarding: true` is
+only a compatibility pointer, not a second canonical implementation.
 
 Compare this pack's skill names with each synced location. Remove only obsolete entries owned
 by this pack, backing up a differing directory or link first. Leave unrelated skills alone.

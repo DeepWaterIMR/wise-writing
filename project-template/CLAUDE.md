@@ -13,6 +13,7 @@ it. This file only adds Claude-specific notes.
 
 - **`academic-style`** before writing or editing any prose.
 - **`academic-conventions`** alongside it for anything touching a `.qmd`.
+- **`r-code-style`** when creating or editing R code; **`r-package-setup`** when changing package setup.
 - **`{{DOC_SKILL}}`** for this document's structure and output formats.
 - **`scientific-quarto-review`** before a long render, and for audits.
 - Data access → BAIT's `biotic-*` skills. sdmTMB indices → index-wise's `index-*` skills.

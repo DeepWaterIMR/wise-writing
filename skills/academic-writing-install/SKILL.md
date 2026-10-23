@@ -2,7 +2,7 @@
 name: academic-writing-install
 description: Install or set up wise-writing on this machine. Use when the user says "install wise-writing", "install https://github.com/DeepWaterIMR/wise-writing", "set up wise-writing", or first asks to write an academic document and the pack is not installed. Clones the repo, installs the skills globally for every agent on the machine, and verifies the toolchain.
 metadata:
-  version: "0.1.0"
+  version: "0.2.0"
 license: MIT
 ---
 
@@ -57,12 +57,13 @@ Sync this pack's skill folders individually into the user-level skills directori
 machine's agents use. Claude Code reads `~/.claude/skills/`; Codex and other supported agents
 use `~/.agents/skills/`.
 
-For each skill, leave a destination symlink in place when it resolves to that source skill;
-updates to the repository then appear automatically. Skip any source and destination that
-resolve to the same path. If a differing directory or link already occupies that skill's
-destination, move that single entry to a timestamped backup before copying the source skill
-folder there. Never copy the pack tree onto itself, delete a skills root, or touch unrelated
-skill entries.
+Install each current folder under this repository's `skills/`, including the shared
+`r-code-style`, `r-package-setup`, and `quarto-reporting` skills. For each skill, leave a
+destination symlink in place when it resolves to that source skill; repository updates then
+appear automatically. Skip any source and destination that resolve to the same path. If a
+differing directory or link already occupies that skill's destination, move that single entry
+to a timestamped backup before copying the source skill folder there. Never copy or rsync a
+pack tree onto itself, delete a skills root, or touch unrelated skill entries.
 
 For a project-scoped install, or an agent that reads neither, copy into `.agents/skills/`
 inside the project, or point that agent's instructions at `<path>/skills/`.
@@ -71,8 +72,9 @@ Each skill carries its own `references/` and `assets/`, so a per-skill recursive
 complete. There is no shared `knowledge/` directory to sync; `~/.claude/knowledge` is a single
 global slot that BAIT already owns. Symlinking an individual skill folder is supported.
 
-**Copy only this pack's skills.** Leave BAIT's `biotic-*` and index-wise's `index-*`
-skills alone.
+**Install only this pack's skills.** The shared R and Quarto skills now live here; BAIT keeps
+the old skill paths as forwarding pointers. Leave BAIT's `biotic-*` and index-wise's `index-*`
+skills alone. These instructions also work when wise-writing is installed without Fiskwise.
 
 ## Step 3 — Record the install
 

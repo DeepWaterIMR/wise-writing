@@ -2,7 +2,7 @@
 name: academic-conventions
 description: Technical conventions for reproducible academic documents written in Quarto with R — project structure, YAML headers, BibTeX and CSL, ICES figure widths, inline R instead of hard-coded numbers, code-folded appendices, package loading, local Git, and rendering to HTML, Word, and PDF. Use whenever creating, editing, or rendering a .qmd document or setting up a writing project.
 metadata:
-  version: "0.1.2"
+  version: "0.2.0"
 license: MIT
 ---
 
@@ -118,8 +118,10 @@ Details, including the `.gitignore` and what belongs where:
 ### 10. Packages
 
 Declare every package once, in `R/0_setup.R`, as a named vector whose value is the GitHub
-repository or `NA` for CRAN. Missing packages install themselves. Keep the default set small
-and load the rest on demand with `ensure_packages()`.
+repository or `NA` for CRAN. New projects include `R/package_setup.R`; missing packages are
+reported without installation by default. Install only after explicit user consent, and never
+use helper-driven installs when `renv` is present. Keep the default set small and load the rest
+on demand with `ensure_packages()`.
 
 Graphs with **ggplot2**, static maps with **ggOceanMaps**, life-history plots with **ggFishPlots**,
 sdmTMB diagnostics with **sdmTMBexperiments**, spatial operations with **sf**, data

@@ -18,15 +18,16 @@ Default ggplot theme: `theme_bw(base_size = 12)`, set once in `R/0_setup.R`.
 
 ## Default set
 
-Loaded in every project, because nearly every document uses them:
+Declared in each new project and loaded by `R/0_setup.R`, because nearly every document uses
+them. They are not installed automatically:
 
 `tidyverse`, `ggplot2`, `sf`, `ggOceanMaps`, `ggspatial`, `ggnewscale`, `here`, `knitr`,
 `quarto`, `scales`, `cowplot`, `flextable`, `kableExtra`, `yaml`, `readxl`, `zip`.
 
 ## Optional set
 
-Declared in `R/0_setup.R` but installed and attached only when a chunk asks for them with
-`ensure_packages()`:
+Declared in `R/0_setup.R` and attached only when a chunk asks for them with `ensure_packages()`.
+If a requested package is missing, the helper reports it without installing by default:
 
 `officer`, `officedown`, `xml2` (Word post-processing) · `jsonlite` · `DBI`, `duckdb`
 (database access — see [BAIT](https://github.com/DeepWaterIMR/BAIT)) · `RstoxData`,
@@ -34,8 +35,7 @@ Declared in `R/0_setup.R` but installed and attached only when a chunk asks for 
 [index-wise](https://github.com/DeepWaterIMR/index-wise)) · `spict` · `ggFishPlots` ·
 `fishmethods` · `blockCV` · `rprojroot`.
 
-Keeping these out of the default set matters: a first run on a new machine that installs
-thirty packages, several of which compile, is a bad first impression and a slow one.
+Keeping these out of the default set limits setup to packages a document actually needs.
 
 ## Declaring them
 
@@ -51,16 +51,19 @@ packages <- c(
 )
 ```
 
-`0_setup.R` installs anything missing and attaches the rest. Adding a package means adding one
-line here — never an `install.packages()` call inside a document.
+`R/package_setup.R` checks the package vector and attaches available packages. Missing packages
+are an error by default; only pass `install_missing_packages = TRUE` after the user authorizes
+installation. `R_AW_INSTALL_MISSING=false` always blocks helper-driven installs, and projects
+with `renv.lock` or an `renv/` directory must use `renv::restore()` instead. Add a package by
+adding one line here — never an `install.packages()` call inside a document.
 
 Notes the loader handles, and which are easy to get wrong by hand:
 
-- A `Rscript` or Quarto session often starts with no CRAN mirror set and no writable user
-  library. Both are fixed before installing.
-- `options(install.packages.compile.from.source = "never")` stops an unattended render hanging
-  on the interactive "install from sources?" question.
-- `remotes` is installed first, but only if a GitHub package is actually missing.
+- After installation is authorized, a `Rscript` or Quarto session with no CRAN mirror or
+  writable user library is configured before installation.
+- `options(install.packages.compile.from.source = "never")` prevents an unattended render
+  from hanging on the interactive source-install question.
+- `remotes` is installed only when an authorized GitHub package install needs it.
 - Some packages must be **attached**, not called with `::`, because they register data or
   methods on the search path. `sdmTMBexperiments` is one.
 
@@ -75,6 +78,6 @@ A package that only formats output does not need citing. A package that changes 
 
 ## Sibling packs
 
-`r-package-setup` (from [BAIT](https://github.com/DeepWaterIMR/BAIT)) covers the loader
-pattern in more depth if you are writing one from scratch. Do not duplicate BAIT's database or
-index-wise's modelling machinery here — call their skills instead.
+The [`r-package-setup`](../../r-package-setup/SKILL.md) skill explains the shared loader and
+explicit-install policy. Do not duplicate BAIT's database or index-wise's modelling machinery
+here — call their skills instead.
