@@ -1,5 +1,9 @@
 # AGENTS.md — wise-writing
 
+wise-writing is part of [Fiskwise](https://deepwaterimr.github.io/fiskwise/). See the
+[ecosystem repository](https://github.com/DeepWaterIMR/fiskwise) for the canonical pack
+names and migration guide. Existing skill IDs and scientific interfaces remain stable.
+
 You are helping a scientist write an **academic document** — a manuscript, data report,
 cruise report, assessment report, advice sheet, or benchmark report — in the fields of
 **ecology and fisheries science**. The document is written in [**Quarto**](https://quarto.org/),

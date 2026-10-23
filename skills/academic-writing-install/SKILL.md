@@ -53,29 +53,23 @@ which does have one.
 
 ## Step 2 — Install the skills globally
 
-Copy the skill folders into every user-level skills directory the machine's agents use:
+Sync this pack's skill folders individually into the user-level skills directories the
+machine's agents use. Claude Code reads `~/.claude/skills/`; Codex and other supported agents
+use `~/.agents/skills/`.
 
-```bash
-mkdir -p ~/.claude/skills ~/.agents/skills
-cp -R "<path>/skills/." ~/.claude/skills/
-cp -R "<path>/skills/." ~/.agents/skills/
-```
-
-```powershell
-New-Item -ItemType Directory -Force "$HOME/.claude/skills", "$HOME/.agents/skills" | Out-Null
-Copy-Item -Recurse -Force "<path>/skills/*" "$HOME/.claude/skills/"
-Copy-Item -Recurse -Force "<path>/skills/*" "$HOME/.agents/skills/"
-```
-
-Claude Code reads `~/.claude/skills/`; Codex and other supported agents use
-`~/.agents/skills/`. Sync only the locations whose agents are installed.
+For each skill, leave a destination symlink in place when it resolves to that source skill;
+updates to the repository then appear automatically. Skip any source and destination that
+resolve to the same path. If a differing directory or link already occupies that skill's
+destination, move that single entry to a timestamped backup before copying the source skill
+folder there. Never copy the pack tree onto itself, delete a skills root, or touch unrelated
+skill entries.
 
 For a project-scoped install, or an agent that reads neither, copy into `.agents/skills/`
 inside the project, or point that agent's instructions at `<path>/skills/`.
 
-Each skill carries its own `references/` and `assets/`, so a plain recursive copy is complete.
-There is **no shared `knowledge/` directory and nothing to symlink** — deliberately, because
-`~/.claude/knowledge` is a single global slot that BAIT already owns.
+Each skill carries its own `references/` and `assets/`, so a per-skill recursive copy is
+complete. There is no shared `knowledge/` directory to sync; `~/.claude/knowledge` is a single
+global slot that BAIT already owns. Symlinking an individual skill folder is supported.
 
 **Copy only this pack's skills.** Leave BAIT's `biotic-*` and index-wise's `index-*`
 skills alone.

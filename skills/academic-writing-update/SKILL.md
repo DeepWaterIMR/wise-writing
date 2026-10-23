@@ -37,25 +37,17 @@ decide; do not rebase or merge on their behalf.
 
 ## Step 3 — Re-sync the skills
 
-```bash
-cp -R "<path>/skills/." ~/.claude/skills/
-cp -R "<path>/skills/." ~/.agents/skills/
-```
-
-```powershell
-Copy-Item -Recurse -Force "<path>/skills/*" "$HOME/.claude/skills/"
-Copy-Item -Recurse -Force "<path>/skills/*" "$HOME/.agents/skills/"
-```
-
 Sync only the locations listed in `skills_synced_to`, plus any agent installed since. For Codex,
-use `~/.agents/skills/`.
+use `~/.agents/skills/`. Reconcile this pack's skill folders individually: keep a destination
+symlink when it resolves to the matching source skill, and skip any source and destination that
+resolve to the same path. Before replacing a differing directory or link, move that entry to a
+timestamped backup. Never copy the pack tree onto itself or delete a skills root.
 
 **Touch only this pack's skills** — the `academic-*` folders and `scientific-quarto-review`.
 Leave BAIT's `biotic-*` and index-wise's `index-*` skills alone.
 
-**Remove a skill that no longer exists upstream.** A copy makes new files appear but never
-removes deleted ones, so compare the folder lists and delete the stragglers from the synced
-locations.
+Compare this pack's skill names with each synced location. Remove only obsolete entries owned
+by this pack, backing up a differing directory or link first. Leave unrelated skills alone.
 
 ## Step 4 — Re-assert the hook
 
