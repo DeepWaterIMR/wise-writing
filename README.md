@@ -3,7 +3,7 @@
 # ✍️ wise-writing — Write scientific documents with AI agents
 
 <!-- version -->
-**Version 0.1.21** (2026-10-23)
+**Version 0.1.22** (2026-10-24)
 <!-- /version -->
 
 This repository is part of [Fiskwise](https://github.com/DeepWaterIMR/fiskwise), with its [project hub](https://deepwaterimr.github.io/fiskwise/). See [MIGRATION.md](MIGRATION.md) for repository and local config migration notes.
