@@ -3,7 +3,7 @@
 # ✍️ wise-writing — Write scientific documents with AI agents
 
 <!-- version -->
-**Version 0.1.23** (2026-10-24)
+**Version 0.1.24** (2026-10-25)
 <!-- /version -->
 
 This repository is part of [Fiskwise](https://github.com/DeepWaterIMR/fiskwise), with its [project hub](https://deepwaterimr.github.io/fiskwise/). See [MIGRATION.md](MIGRATION.md) for repository and local config migration notes.
@@ -105,3 +105,9 @@ See [`CONTRIBUTING.md`](CONTRIBUTING.md). Run `Rscript config/validate-skills.R`
 ## 📄 Licence
 
 MIT, except the bundled institutional templates and citation style, which keep their own terms — see [`LICENSE`](LICENSE).
+
+## Start with an example
+
+[The wise-writing overview](https://deepwaterimr.github.io/fiskwise/wise-writing.html)
+shows the shared core, an example request and standalone installation. It is generated
+from the Fiskwise inventory; the detailed skills and templates remain authoritative here.

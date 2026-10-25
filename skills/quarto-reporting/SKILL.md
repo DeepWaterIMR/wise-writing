@@ -10,6 +10,18 @@ metadata:
 license: MIT
 ---
 
+<!-- pack-resources:start -->
+**Pack resources:** resolve `wise-writing` from `~/.wise-writing/config.json` → `academic_writing_path` (or
+`~/.fiskwise/config.json` → `components.wise-writing.path`). If neither exists, use the
+checkout containing this skill, or locate/obtain the pack through its install instructions.
+Paths such as `knowledge/`, `cookbook/`, `config/` and `project-template/` belong to that
+repository, not the current research directory. For a copied skill, resolve a link that
+leaves this skill's directory against the corresponding source skill under that root;
+keep bundled `references/` links relative to the skill. Never assume `../../` from an
+agent's global skills folder reaches the repository. Use absolute resolved script paths.
+<!-- pack-resources:end -->
+
+
 # Build reproducible Quarto outputs
 
 Treat the `.qmd` source as the authoritative executable document. Keep the workflow
@@ -64,3 +76,7 @@ Report which formats were rendered, which tests and visual checks passed, whethe
 render used refreshed data or existing snapshots, and any unresolved analytical or
 template limitations. Do not expose confidential raw data through embedded tables,
 coordinates, logs, or committed outputs.
+
+For background jobs and cache provenance, use the shared
+[rendering guidance](../academic-conventions/references/rendering.md). Method packs own
+scientific cache dependencies; wise-writing owns the generic execution contract.

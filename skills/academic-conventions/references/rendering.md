@@ -97,3 +97,20 @@ An analysis document can take minutes to hours. For those:
 4. Check that every `#| label:` is unique. Duplicates break cross-references silently.
 5. Render one format at a time to find which one fails.
 6. Treat every warning as unresolved until you have classified it.
+
+## Long renders and cache provenance
+
+Review changed analysis code before an expensive render using available review tools or
+a careful independent pass. A named agent command is optional. Launch the render in a
+background process that survives the agent call, from the project root, with a unique log
+and an exit-status record. Use the host's background-job facility, or screen/tmux on Unix,
+or PowerShell Start-Process on Windows. Create the logs directory first; report the job
+identifier, log and output path. Confirm process completion and inspect the output rather
+than inferring success from the presence of an old file.
+
+Keep model-specific flags in the method pack. Cache reuse needs matching data, relevant
+configuration, model code and package versions. Record their hashes/versions beside cached
+results; if no record exists, treat validity as unknown and rebuild the affected stage.
+Invalidate dependent diagnostics when their fit changes. Preserve unrelated outputs and
+prior results rather than deleting an entire output directory. Respect project renv locks;
+an ecosystem update does not authorize changing a reproducible project's environment.

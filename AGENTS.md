@@ -96,6 +96,12 @@ load a reference file only when you need it.
 | Start an **advice sheet**                                      | `skills/academic-advice-sheet/SKILL.md` |
 | Start a **benchmark report**                                   | `skills/academic-benchmark-report/SKILL.md` |
 
+Use a document-type skill for its scientific structure; `quarto-reporting` supplies generic
+output mechanics, while `scientific-quarto-review` reviews an existing analysis. Do not load
+all document-type skills for every task. Generic rendering and background jobs belong to
+`academic-conventions/references/rendering.md`; method-specific cache dependencies belong
+to the method pack.
+
 `academic-style` and `academic-conventions` are the foundation: load **both** before creating
 or editing any Quarto document, and `academic-style` alone when only prose is at stake.
 
