@@ -25,7 +25,11 @@ templates. You learn them by *reading this repo at runtime*.
 It is deliberately **general-purpose**. Domain machinery lives elsewhere:
 [BAIT](https://github.com/DeepWaterIMR/BAIT) for IMR Biotic data access, privacy, maps, and
 life history; [index-wise](https://github.com/DeepWaterIMR/index-wise) for sdmTMB
-survey indices. This pack owns **style, structure, and reproducible-document conventions**.
+survey indices; [spict-wise](https://github.com/DeepWaterIMR/spict-wise) for SPiCT
+assessments; [gadget-wise](https://github.com/DeepWaterIMR/gadget-wise) for gadget3 models;
+[wise-presentations](https://github.com/DeepWaterIMR/wise-presentations) for slides. The
+current list is the Fiskwise
+[`packages.json`](https://github.com/DeepWaterIMR/fiskwise/blob/main/packages.json). This pack owns **style, structure, and reproducible-document conventions**.
 If a task needs data or a model, defer to those packs; if it needs prose, structure, or a
 document that renders, it is yours.
 
