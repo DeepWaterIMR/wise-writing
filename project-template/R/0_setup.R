@@ -6,7 +6,19 @@
 
 `%||%` <- function(a, b) if (is.null(a)) b else a
 
-source("R/package_setup.R")
+# Documents may be rendered with the working directory at the project root (recommended) or
+# at the document's own folder; find config.yaml either way, and use its folder as the
+# project root for everything below.
+.find_config <- function() {
+  for (p in c("config.yaml", "../config.yaml", "../../config.yaml", "../../../config.yaml")) {
+    if (file.exists(p)) return(normalizePath(p))
+  }
+  stop("config.yaml not found. Render from the project root, or set the working directory.")
+}
+.config_path <- .find_config()
+project_root <- dirname(.config_path)
+
+source(file.path(project_root, "R", "package_setup.R"))
 
 # --- Packages ---------------------------------------------------------------------------
 # Every package the project uses, named ONCE. The value is the GitHub repository for
@@ -65,7 +77,7 @@ install_missing_packages <- FALSE
 # Compatibility entry point: installation policy remains explicit and shared.
 install_packages_if_missing <- function(pkgs) {
   package_setup(pkgs, install_missing_packages = install_missing_packages,
-                project_root = getwd(), attach = function(packages) invisible(NULL))
+                project_root = project_root, attach = function(packages) invisible(NULL))
 }
 
 # Install-and-attach an optional package at the point of use, e.g. ensure_packages("oce").
@@ -82,22 +94,14 @@ ensure_packages <- function(...) {
   package_setup(
     known[nms],
     install_missing_packages = install_missing_packages,
-    project_root = getwd()
+    project_root = project_root
   )
 }
 
 package_setup(packages, install_missing_packages = install_missing_packages,
-              project_root = getwd())
+              project_root = project_root)
 
 # --- Config -----------------------------------------------------------------------------
-# Documents may be rendered with the working directory at the project root (recommended) or
-# at the document's own folder; find config.yaml either way.
-.find_config <- function() {
-  for (p in c("config.yaml", "../config.yaml", "../../config.yaml", "../../../config.yaml")) {
-    if (file.exists(p)) return(normalizePath(p))
-  }
-  stop("config.yaml not found. Render from the project root, or set the working directory.")
-}
 
 # Read as UTF-8 bytes so Scandinavian characters (å/æ/ø) parse regardless of the R locale.
 .read_yaml_utf8 <- function(path) {
@@ -106,9 +110,7 @@ package_setup(packages, install_missing_packages = install_missing_packages,
   yaml::yaml.load(txt)
 }
 
-.config_path <- .find_config()
 cfg <- .read_yaml_utf8(.config_path)
-project_root <- dirname(.config_path)
 
 # --- Paths ------------------------------------------------------------------------------
 data_dir    <- file.path(project_root, cfg$DATA_DIR    %||% "data")

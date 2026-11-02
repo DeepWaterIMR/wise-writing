@@ -79,12 +79,12 @@ scaffold_document(file.path(repo, "examples", "config.yaml"), target,
                   types = "manuscript", pack = repo)
 stopifnot(file.exists(file.path(target, "R", "package_setup.R")))
 scaffold_setup <- readLines(file.path(target, "R", "0_setup.R"), warn = FALSE)
-stopifnot(any(grepl('source("R/package_setup.R")', scaffold_setup, fixed = TRUE)),
+stopifnot(any(grepl('source(file.path(project_root, "R", "package_setup.R"))', scaffold_setup, fixed = TRUE)),
           any(grepl("ensure_packages <- function", scaffold_setup, fixed = TRUE)))
 
 # Also validate the source template's public wrapper and fail-closed default.
 setup <- readLines(file.path(repo, "project-template", "R", "0_setup.R"), warn = FALSE)
-stopifnot(any(grepl('source("R/package_setup.R")', setup, fixed = TRUE)),
+stopifnot(any(grepl('source(file.path(project_root, "R", "package_setup.R"))', setup, fixed = TRUE)),
           any(grepl("ensure_packages <- function", setup, fixed = TRUE)),
           any(grepl("install_missing_packages <- FALSE", setup, fixed = TRUE)))
 
