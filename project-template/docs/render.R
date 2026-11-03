@@ -21,7 +21,7 @@ read_front_matter <- function(qmd) {
   lines <- readLines(qmd, encoding = "UTF-8", warn = FALSE)
   fences <- which(trimws(lines) == "---")
   if (length(fences) < 2 || fences[1] != 1) return(list())
-  yaml::yaml.load(paste(lines[(fences[1] + 1):(fences[2] - 1)], collapse = "\n"))
+  yaml::yaml.load(paste(lines[(fences[1] + 1):(fences[2] - 1)], collapse = "\n"), eval.expr = FALSE)
 }
 
 # --- Find the project root ---------------------------------------------------------------

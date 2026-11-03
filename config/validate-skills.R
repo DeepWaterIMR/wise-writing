@@ -44,7 +44,7 @@ for (d in skill_dirs) {
     next
   }
   fm <- tryCatch(
-    yaml::yaml.load(paste(lines[(fences[1] + 1):(fences[2] - 1)], collapse = "\n")),
+    yaml::yaml.load(paste(lines[(fences[1] + 1):(fences[2] - 1)], collapse = "\n"), eval.expr = FALSE),
     error = function(e) NULL
   )
   if (is.null(fm)) {
