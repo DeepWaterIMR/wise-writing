@@ -98,6 +98,24 @@ An analysis document can take minutes to hours. For those:
 5. Render one format at a time to find which one fails.
 6. Treat every warning as unresolved until you have classified it.
 
+## Silent rendering traps
+
+These render without an error and leave a wrong document:
+
+- **One labelled output per chunk.** A chunk that emits both a figure and a table gets no
+  `fig-` identifier, so `@fig-...` stays unresolved. Split it into a data chunk, a figure chunk
+  and a table chunk.
+- **`<U+2014>`-style escapes** in captions, `cat()` output or table headers mean the R session
+  ran without a UTF-8 locale, typical of a detached or server render. Set `LANG` and `LC_ALL` to
+  a UTF-8 locale in the render wrapper; until then keep em dashes and non-ASCII letters out of
+  `#| fig-cap:`, `#| tbl-cap:` and `cat()` strings (body prose is unaffected).
+- **Quote a `!expr` caption that contains a colon**, or YAML parses the chunk option wrongly.
+- **Tables describing a fitted model read from the fitted object**, not from the config or the
+  formula variable, so a render that loads a cached fit still reports the model it shows.
+- **A successful render says nothing about legibility.** Look at the figures: extract the
+  embedded base64 images from a self-contained HTML (or open the PNGs) and check that maps,
+  legends and small multiples are readable at the rendered size.
+
 ## Long renders and cache provenance
 
 Review changed analysis code before an expensive render using available review tools or
