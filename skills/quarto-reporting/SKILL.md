@@ -6,7 +6,7 @@ description: >-
   rendered-output QA. Use for .qmd analyses, technical reports, or multi-format Quarto
   deliverables; not for a standalone R script with no document output.
 metadata:
-  version: "0.1.0"
+  version: "0.1.1"
 license: MIT
 ---
 
@@ -42,6 +42,10 @@ web-report template is an opt-in alternative, not the default for unrelated work
 The Word Manuscript fallback uses
 [`scripts/build_manuscript_reference.py`](scripts/build_manuscript_reference.py) to retain
 Pandoc's required styles while applying the locally installed Word design.
+[`scripts/make_word_reference.R`](scripts/make_word_reference.R) builds a plain A4 reference
+document when no design is available, and [`scripts/render_word.R`](scripts/render_word.R)
+with [`scripts/docx_tidy.R`](scripts/docx_tidy.R) fixes Quarto's Word layout defects (see
+"Word layout fixes" in `references/formal-reports.md`).
 
 ## Shared workflow
 
