@@ -36,6 +36,13 @@ not recorded, ask rather than inventing a placeholder. Use `published-title: "Ve
 the YAML `date:` field, and verify that the rendered title block says **Version**, not
 **Published**.
 
+**Every document carries an AI statement.** Whatever the document type — manuscript, report,
+data report, background note, summary, slides — when an AI system drafted text, wrote code or
+ran analyses, the document says so, names the model, and states that the authors are
+responsible. Add it when you create a document, keep it (appending your model) when you edit
+one, and check for it before every render. Wording and placement:
+[`../academic-style/references/ai-disclosure.md`](../academic-style/references/ai-disclosure.md).
+
 ### 2. Quarto, R, BibTeX
 
 Documents are `.qmd`. Analyses are R. References live in a BibTeX file —
@@ -164,4 +171,5 @@ Quarto's wrapper environments from Word floats — goes through `docs/render.R`.
 
 ## Done
 
-Say what you built or changed, whether it renders, and what the user still has to decide.
+Before saying a document is done, confirm that it has an AI statement naming the model. Say
+what you built or changed, whether it renders, and what the user still has to decide.

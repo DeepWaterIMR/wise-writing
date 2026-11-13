@@ -33,8 +33,11 @@ output as finished; say what you changed and what still needs checking.
 
 - **Never list a language model as an author** — not in the byline, not in the YAML, not in
   the acknowledgements.
-- **Disclose AI use in Materials and Methods**, naming the model. Acknowledgements only if the
-  model did nothing but correct language, which is rare.
+- **Every document gets an AI statement, whatever its type** — manuscript, report, data
+  report, background note, summary, slides. Name the model and what it did. In a manuscript it
+  goes in Materials and Methods; elsewhere in a *Software and reproducibility* or *Use of
+  generative AI* section. Acknowledgements only if the model did nothing but correct language,
+  which is rare. A document without the statement is not finished.
 - If a model list is already there, **append** your model. Never replace it.
 - Full wording and placement: [`references/ai-disclosure.md`](references/ai-disclosure.md).
 

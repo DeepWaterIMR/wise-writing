@@ -43,8 +43,13 @@ These are accountability rules, not preferences. They come from the
    your output as finished. Say what you changed and what still needs checking.
 2. **Never list a language model as an author.** Not in the YAML, not in the byline, not in
    the acknowledgements as an author.
-3. **Disclose AI use** in Materials and Methods, naming the model. If a model list already
-   exists, **append** your model — never replace what is there.
+3. **Every document you create or edit carries an AI statement — no exceptions.** That
+   includes manuscripts, reports, data reports, background notes, summaries, slide decks
+   and README-style documents, in any format (Quarto, R Markdown, Word, Markdown). Name the
+   model and say what it did; put it where a reader looks for how the work was done
+   (Materials and methods, or a *Software and reproducibility* / *Use of generative AI*
+   section). If a model list already exists, **append** your model — never replace what is
+   there. Before rendering or handing over a document, check that the statement is there.
 4. **Never invent.** No fabricated facts, statistics, R functions, package behaviour, or
    citations. When you do not know, say so and flag it for verification. A plausible-looking
    guess in a scientific document is worse than an admitted gap.

@@ -66,6 +66,11 @@ over-inclusive list is honest, a truncated one is not.
 
 If there is no disclosure and AI was used, add one. Silence is not a neutral default.
 
+**Every document needs one — there is no document type without it.** Agents tend to add the
+statement to manuscripts and reports and forget it in "minor" documents: background notes,
+literature summaries, data documents, method notes, slide decks, one-off analyses. Those need
+it too. Check for it before every render.
+
 ## Where it goes, by document type
 
 | Document | Placement |
@@ -76,6 +81,9 @@ If there is no disclosure and AI was used, add one. Silence is not a neutral def
 | Assessment report | The methods or *"Basis of the assessment"* section |
 | Advice sheet | *"Basis of the assessment"*, or the sources section if the sheet has no methods |
 | Benchmark report | The methods section of the relevant stock chapter |
+| Background note, literature summary, method note | A *"Software and reproducibility"* or *"Use of generative AI"* section before the references |
+| Slide deck | A methods or closing slide |
+| Any other document | Where a reader looking for how the work was done would look; never omitted |
 
 Whatever the type, it goes where a reader looking for how the work was done would look.
 
