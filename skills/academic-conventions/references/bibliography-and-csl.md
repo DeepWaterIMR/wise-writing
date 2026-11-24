@@ -80,7 +80,9 @@ new <- unlist(lapply(refs, function(r) format(r, style = "bibtex")))
 
 Then rename the keys to something stable and readable — `@ggplot2`, `@rcoreteam` — and check
 for duplicates. Some packages emit several entries; keep the one the maintainers ask you to
-cite.
+cite. A package whose `citation()` is a published paper already in the library (same DOI)
+is cited by that entry: do not add a second copy, and replace a preprint entry with the
+published version when it appears.
 
 Group packages by what they did so the prose remains readable, for example data access,
 data handling, spatial analysis, figures, and document compilation. Every citation key used
