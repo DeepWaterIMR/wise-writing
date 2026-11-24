@@ -3,8 +3,9 @@
 ## Where the bibliography lives
 
 `docs/assets/references.bib`, unless the project already has a BibTeX file or the user names
-another. One file per project; a document that needs a subset gets it through `nocite:`, not
-through a second file.
+another. One file per project, holding every reference (literature and software); every document links
+to it, and a document that needs a subset gets it through `nocite:`, not through a second
+file. Do not generate per-document bibliographies: one file is easier for humans to maintain.
 
 ```yaml
 bibliography: assets/references.bib
@@ -64,15 +65,17 @@ citation("ggplot2")              # a package
 toBibtex(citation("ggplot2"))    # BibTeX to paste into references.bib
 ```
 
-Write them all out at once and append to the bibliography:
+Append them to the project's single `references.bib`, never to a separate software file:
+literature and software references live in one file that humans maintain. Add only keys
+that are missing, so hand edits to existing entries survive:
 
 ```r
+bib <- "docs/assets/references.bib"
 pkgs <- c("ggplot2", "sf", "ggOceanMaps", "quarto", "knitr")
-writeLines(
-  c(format(citation(), style = "bibtex"),
-    unlist(lapply(pkgs, function(p) format(citation(p), style = "bibtex")))),
-  "docs/assets/software.bib"
-)
+refs <- c(list(citation()), lapply(pkgs, citation))
+have <- sub("^@[A-Za-z]+\{([^,]+),.*", "\1", grep("^@", readLines(bib), value = TRUE))
+new <- unlist(lapply(refs, function(r) format(r, style = "bibtex")))
+# give the entries stable keys first (see below), then append those not in `have`
 ```
 
 Then rename the keys to something stable and readable — `@ggplot2`, `@rcoreteam` — and check
