@@ -45,7 +45,10 @@ Not:
 > Table 1 gives details of sampling.
 
 The first sentence carries a finding; the second is a signpost that costs a sentence and says
-nothing. Every float is referred to at least once, and the text never refers to a float that
+nothing. Never make a float the subject of a sentence ("Figure 2 shows…", "@fig-x compares…",
+"Table 3 gives…"), in prose or in inline code that writes prose. When a sentence describes
+several floats, list them in one parenthesis: "The hauls come from six survey series (Table 1,
+Figure 1, Figure 2)." Every float is referred to at least once, and the text never refers to a float that
 does not exist.
 
 Number figures and tables in **separate sequences**, each in order of first mention. Do not

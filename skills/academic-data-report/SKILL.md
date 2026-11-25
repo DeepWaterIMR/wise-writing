@@ -131,7 +131,8 @@ though `eval` is `FALSE` — a missing script breaks the render.
 - **Derive first, write second.** Put every value the prose quotes in one named chunk and
   reference the objects, so text, tables, and figures cannot drift.
 - **Say what each figure shows.** A data report that leaves the reader to interpret its own
-  figures has not done its job. One sentence with the cross-reference at the end.
+  figures has not done its job. One sentence stating the finding, with the cross-reference
+  at the end; never "Figure X shows…" (academic-style, `references/figures-tables.md`).
 - **Report what you tried and dropped**, not only what worked. The next reader's first
   question is usually "did you consider…".
 - **Distinguish observed, estimated, and modelled values** everywhere, including in table
